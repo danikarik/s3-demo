@@ -73,7 +73,7 @@ func main() {
 	_, path := filepath.Split(filename)
 	output, err := uploader.Upload(&s3manager.UploadInput{
 		Bucket: aws.String(bucketName),
-		Key:    aws.String("pkpass/" + path),
+		Key:    aws.String(filepath.Join(folderName, path)),
 		Body:   file,
 	})
 	if err != nil {
